@@ -8,6 +8,8 @@ int check_cycle(listint_t *list)
 
 	if(!list)
 		return(0);
+	if(list == list->next)
+		return(1);
 	home = list;
 	step = list;
 	j = 0;
