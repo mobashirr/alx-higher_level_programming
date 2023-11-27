@@ -1,2 +1,2 @@
 #!/bash/bin
-python3 -c $PYFILE # this -c option used for string that we want to excute
+python3 -c $PYFILE 
