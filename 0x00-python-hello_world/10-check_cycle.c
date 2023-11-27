@@ -15,15 +15,17 @@ int check_cycle(listint_t *list)
 		if (step->next)
 		{
 			step = step->next;
-			temp = list;
-			for(i = 0; temp->next; ++i)
+			temp = home;
+			for(i = 0; temp; ++i)
 			{
-				temp = temp->next;
 				if(step == temp)
-				{
 					return(1);
-				}
-				
+
+				if (temp->next)
+					temp = temp->next;
+				else
+					temp = NULL;
+
 			}
 
 		}
