@@ -5,8 +5,9 @@ int check_cycle(listint_t *list)
 	listint_t *home,*step,*temp;
 	int i;
 
-	if(!list)
+	if(!list || !list->next)
 		return(0);
+
 	home = list;
 	step = list;
 	while(1)
@@ -17,11 +18,12 @@ int check_cycle(listint_t *list)
 			temp = home;
 			for(i = 0; temp->next; ++i)
 			{
-				if(step == temp || temp == list)
+				temp = temp->next;
+				if(step == temp)
 				{
 					return(1);
 				}
-				temp = temp->next;
+				
 			}
 
 		}
