@@ -65,8 +65,8 @@ void free_listint(listint_t *head)
 
 int check_cycle(listint_t *list)
 {
-	listint_t *home,*step,*next,*temp;
-	int i,j;
+	listint_t *home,*step,*temp;
+	int i;
 
 	if(!list)
 		return(0);
