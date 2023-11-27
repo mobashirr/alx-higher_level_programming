@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import this
 # "this" is the zen of python
 zen = str(this)
