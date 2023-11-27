@@ -4,33 +4,36 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *home,*step,*temp;
-	int i,j;
+	int i;
 
-	if (!list)
+	if(!list)
 		return(0);
-	else if (list == list->next)
-		return(1);
-
 	home = list;
 	step = list;
-	for(j = 1; step; j++)
+	while(1)
 	{
 		if (step->next)
 		{
 			step = step->next;
 			temp = home;
-			for(i = 1; temp->next; i++)
+			for(i = 0; temp->next; ++i)
 			{
-				temp = temp->next;
-				if(step == temp)
+				if(step == temp || temp == list)
 				{
-					if(i != j)
-						return(1);
+					return(1);
 				}
+				temp = temp->next;
 			}
+			if(step == temp)
+				return(1);
 		}
 		else
+		{
+			if(step == list)
+				return(0);
 			break;
+		}
+	
 	}
 	return(0);
 }
