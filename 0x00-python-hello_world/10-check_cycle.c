@@ -31,7 +31,7 @@ int check_cycle(listint_t *list)
 	}
 	return(0);
 }
-
+/*
 int main(void)
 {
     listint_t *head;
@@ -75,3 +75,4 @@ int main(void)
 
     return (0);
 }
+*/
