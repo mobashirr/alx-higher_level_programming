@@ -6,28 +6,26 @@ int check_cycle(listint_t *list)
 	listint_t *home,*step,*temp;
 	int i,j;
 
-	if(!list || !list->next)
+	if(!list )
 		return(0);
 	if(list == list->next)
 		return(1);
 	home = list;
 	step = list;
-	j = 1;
+	j = 0;
 	while(1)
 	{
 		if (step->next)
 		{
 			step = step->next;
 			temp = home;
-			for(i = 1; temp->next; i++)
+			for(i = 0; temp->next; i++)
 			{
-				temp = temp->next;
 				if(step == temp)
 				{
-					if(i != j)
-						return(1);
+					return(1);
 				}
-				
+				temp = temp->next;
 			}
 		}
 		else
