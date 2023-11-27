@@ -13,6 +13,7 @@ int check_cycle(listint_t *list)
 	{
 		if (step->next)
 		{
+			step = step->next;
 			temp = home;
 			for(i = 0; temp->next; ++i)
 			{
@@ -22,10 +23,13 @@ int check_cycle(listint_t *list)
 				}
 				temp = temp->next;
 			}
-			step = step->next;
 		}
 		else
+		{
+			if(step == list)
+				return(0);
 			break;
+		}
 	
 	}
 	return(0);
