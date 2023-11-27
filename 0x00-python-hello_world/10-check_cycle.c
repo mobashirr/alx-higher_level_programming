@@ -1,12 +1,16 @@
+
 #include "lists.h"
+
 
 int check_cycle(listint_t *list)
 {
 	listint_t *home,*step,*temp;
-	int i;
+	int i,j = 1;
 
-	if(!list || list->next == list || !list->next)
+	if(!list || !list->next)
 		return(0);
+	else if( list->next == list)
+		return(1);
 
 	home = list;
 	step = list;
@@ -16,28 +20,26 @@ int check_cycle(listint_t *list)
 		{
 			step = step->next;
 			temp = home;
-			for(i = 0; temp; ++i)
+			for(i = 0; temp; i++)
 			{
 				if(step == temp)
-					return(1);
-
-				if (temp->next)
+				{
+					if(i != j)
+						return(1);
+				}
+				if(temp->next)
 					temp = temp->next;
 				else
 					temp = NULL;
-
 			}
-
 		}
 		else
-		{
-			break;
-		}
-	
+		break;
+		++j;
 	}
 	return(0);
 }
-/*
+
 int main(void)
 {
     listint_t *head;
@@ -81,4 +83,3 @@ int main(void)
 
     return (0);
 }
-*/
