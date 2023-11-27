@@ -27,8 +27,6 @@ int check_cycle(listint_t *list)
 		}
 		else
 		{
-			if(step == list)
-				return(0);
 			break;
 		}
 	
