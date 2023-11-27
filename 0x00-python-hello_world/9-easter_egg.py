@@ -1,10 +1,4 @@
-#!/usr/bin/python3
-import io
-import contextlib
-
-with io.StringIO() as buf, contextlib.redirect_stdout(buf):
-    import this
-    zen = buf.getvalue()
-
-# Print the Zen of Python
-print(f"{zen[:34]}\n{zen[35:]}")
+import this
+# "this" is the zen of python
+zen = str(this)
+print(f"{zen[33:68]}\n{zen[68:]}")
