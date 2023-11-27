@@ -18,21 +18,18 @@ int check_cycle(listint_t *list)
 		{
 			step = step->next;
 			temp = home;
-			for(i = 0; temp; i++)
+			for(i = 0; temp->next; ++i)
 			{
 				if(step == temp)
 				{
 					if(i != j)
 						return(1);
 				}
-				if(temp->next)
-					temp = temp->next;
-				else
-					temp = NULL;
+				temp = temp->next;
 			}
 		}
 		else
-		break;
+			break;
 		++j;
 	}
 	return(0);
