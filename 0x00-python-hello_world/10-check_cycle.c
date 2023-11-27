@@ -5,10 +5,12 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *home,*step,*temp;
-	int i,j = 1;
+	int i,j = 0;
 
-	if(!list)
+	if (!list)
 		return(0);
+	else if (list = list->next)
+		return(1);
 
 	home = list;
 	step = list;
@@ -18,14 +20,14 @@ int check_cycle(listint_t *list)
 		{
 			step = step->next;
 			temp = home;
-			for(i = 0; temp->next; ++i)
+			for(i = 0; temp->next; i++)
 			{
+				temp = temp->next;
 				if(step == temp)
 				{
 					if(i != j)
 						return(1);
 				}
-				temp = temp->next;
 			}
 		}
 		else
