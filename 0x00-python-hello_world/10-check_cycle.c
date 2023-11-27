@@ -23,7 +23,8 @@ int check_cycle(listint_t *list)
 			{
 				if(step == temp)
 				{
-					return(1);
+					if(i != j)
+						return(1);
 				}
 				temp = temp->next;
 			}
