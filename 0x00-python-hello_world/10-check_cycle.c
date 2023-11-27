@@ -18,26 +18,20 @@ int check_cycle(listint_t *list)
 			temp = home;
 			for(i = 0; temp->next; ++i)
 			{
-				if(step == temp || temp == list)
+				if(step == temp)
 				{
 					return(1);
 				}
 				temp = temp->next;
 			}
-			if(step == temp)
-				return(1);
 		}
 		else
-		{
-			if(step == list)
-				return(0);
-			break;
-		}
+		break;
 	
 	}
 	return(0);
 }
-/*
+
 int main(void)
 {
     listint_t *head;
@@ -81,4 +75,3 @@ int main(void)
 
     return (0);
 }
-*/
