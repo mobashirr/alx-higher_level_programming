@@ -17,12 +17,14 @@ int check_cycle(listint_t *list)
 			temp = home;
 			for(i = 0; temp->next; ++i)
 			{
-				if(step == temp)
+				if(step == temp || temp == list)
 				{
 					return(1);
 				}
 				temp = temp->next;
 			}
+			if(step == temp)
+				return(1);
 		}
 		else
 		{
