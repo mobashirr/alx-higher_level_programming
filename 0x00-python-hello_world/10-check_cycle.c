@@ -19,14 +19,15 @@ int check_cycle(listint_t *list)
 		{
 			step = step->next;
 			temp = home;
-			for(i = 0; temp->next; i++)
+			for(i = 1; temp->next; i++)
 			{
+				temp = temp->next;
 				if(step == temp)
 				{
 					if(i != j)
 						return(1);
 				}
-				temp = temp->next;
+				
 			}
 		}
 		else
