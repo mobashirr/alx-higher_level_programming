@@ -1,26 +1,25 @@
 
 #include "lists.h"
 
-
 int check_cycle(listint_t *list)
 {
 	listint_t *home,*step,*temp;
-	int i,j = 0;
+	int i,j;
 
 	if (!list)
 		return(0);
-	else if (list = list->next)
+	else if (list == list->next)
 		return(1);
 
 	home = list;
 	step = list;
-	while(1)
+	for(j = 1; step; j++)
 	{
 		if (step->next)
 		{
 			step = step->next;
 			temp = home;
-			for(i = 0; temp->next; i++)
+			for(i = 1; temp->next; i++)
 			{
 				temp = temp->next;
 				if(step == temp)
@@ -32,7 +31,6 @@ int check_cycle(listint_t *list)
 		}
 		else
 			break;
-		++j;
 	}
 	return(0);
 }
