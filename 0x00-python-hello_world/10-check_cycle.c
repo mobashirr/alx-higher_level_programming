@@ -7,10 +7,8 @@ int check_cycle(listint_t *list)
 	listint_t *home,*step,*temp;
 	int i,j = 1;
 
-	if(!list || !list->next)
+	if(!list)
 		return(0);
-	else if( list->next == list)
-		return(1);
 
 	home = list;
 	step = list;
