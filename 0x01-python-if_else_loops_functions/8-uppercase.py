@@ -5,8 +5,8 @@ def uppercase(str):
 	j = 0
 
 	while j < len(str):
-        
-		i = int.from_bytes(str[j].encode('utf-8'), 'big')
+
+		i = ord(str[j])
 
 		if 97 <= i <= 122:
 			i = i - (97 - 65)
