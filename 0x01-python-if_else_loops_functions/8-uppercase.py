@@ -14,9 +14,3 @@ def uppercase(str):
 		print("{:c}".format(i), end="" if j != len(str) else "\n")
 		j += 1
 	print("\n")
-
-
-uppercase = __import__('8-uppercase').uppercase
-
-uppercase("best")
-uppercase("Best School 98 Battery street")
