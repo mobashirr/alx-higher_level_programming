@@ -3,6 +3,9 @@ import random
 number = random.randint(-10000, 10000)
 last = number % 10
 
+if number < 0:
+    last *= -1
+
 if last > 5:
     size = "and is greater than 5"
 elif last < 6 and last != 0:
