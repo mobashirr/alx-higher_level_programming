@@ -13,7 +13,7 @@ def pow(a, b):
     elif b < 0:
         b *= -1
         result = 1 / result
-        for _  in range(1, b + 1):
+        for _  in range(1, b):
             result /= 10
 
     return(result)
