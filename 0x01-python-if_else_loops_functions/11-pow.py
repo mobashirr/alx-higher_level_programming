@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 def pow(a, b):
-    
+
     result = a
 
     if b == 0:
@@ -16,4 +16,4 @@ def pow(a, b):
         for _  in range(1, b):
             result /= 10
 
-    return(result)
+    return (result)
