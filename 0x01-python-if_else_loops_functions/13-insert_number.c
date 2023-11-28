@@ -1,22 +1,46 @@
 #include "lists.h"
 
+listint_t *add(listint_t **head, int num)
+{
+	listint_t *temp, *new, *next;
+	/*set if no list or if head->n less that number*/
+
+			if((*head))
+			temp = (*head);
+
+
+
+
+			/*set he new node:*/
+			new = malloc(sizeof(listint_t));
+
+			if(!new)
+				return(NULL);
+			new->n = num;	/*set the value*/
+			if(temp && temp->next)
+			{
+				next = temp->next;	/*save the next ptr*/
+				new->next = next;	/*set the next ptr*/
+				temp->next = new;
+				return(temp);
+			}
+			return(new);	/*return the new node*/
+}
 listint_t *insert_node(listint_t **head, int number)
 {
 
 	listint_t *temp, *new, *next;
 
-	if (!head)
-	{
-		new = add_nodeint_end(head, number);
-		return(new);
-	}
+	if(!(*head) || (*head)->n > number)
+		return(add(head, number));
 
 	temp = (*head);
 
 	while(temp && temp->next)
 	{
-		if(temp->next->n > number || (*head)->n < number)
+		if(temp->next->n > number)
 		{
+
 			/*set he new node:*/
 			new = malloc(sizeof(listint_t));
 			next = temp->next;	/*save the next ptr*/
@@ -33,7 +57,7 @@ listint_t *insert_node(listint_t **head, int number)
 
 		return(NULL);
 }
-/*
+
 int main(void)
 {
     listint_t *head;
@@ -59,4 +83,4 @@ int main(void)
 
     return (0);
 }
-*/
+
