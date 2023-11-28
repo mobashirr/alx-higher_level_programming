@@ -15,10 +15,3 @@ def uppercase(str):
 			print(f"{i:c}", end="")
 		j += 1
 	print("\n", flush=True)
-
-
-
-uppercase = __import__('8-uppercase').uppercase
-
-uppercase("best")
-uppercase("Best School 98 Battery street")
