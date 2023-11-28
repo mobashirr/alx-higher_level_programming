@@ -14,3 +14,4 @@ def uppercase(str):
 		print("{:c}".format(i), end="")
 		j += 1
 
+	print("\n")
