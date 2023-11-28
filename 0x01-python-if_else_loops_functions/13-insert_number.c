@@ -30,7 +30,7 @@ listint_t *insert_node(listint_t **head, int number)
 
 		return(NULL);
 }
-
+/*
 int main(void)
 {
     listint_t *head;
@@ -56,3 +56,4 @@ int main(void)
 
     return (0);
 }
+*/
