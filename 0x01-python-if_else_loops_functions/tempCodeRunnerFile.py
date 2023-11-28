@@ -1,1 +1,2 @@
-   i = int(c)
+
+	while str[j] != '\0':
