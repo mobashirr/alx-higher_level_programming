@@ -10,8 +10,13 @@ def uppercase(str):
 
 		if 97 <= i <= 122:
 			i = i - (97 - 65)
-			print(f"{i:c}", end="")
-		else:
-			print(f"{i:c}", end="")
+
+		print("{:c}".format(i), end="" if j != len(str) else "\n")
 		j += 1
-	print("\n", flush=True)
+	print("\n")
+
+
+uppercase = __import__('8-uppercase').uppercase
+
+uppercase("best")
+uppercase("Best School 98 Battery street")
