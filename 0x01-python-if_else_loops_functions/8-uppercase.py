@@ -2,16 +2,16 @@
 
 def uppercase(str):
 
-	j = 0
+    j = 0
 
-	while j < len(str):
+    while j < len(str):
 
-		i = ord(str[j])
+        i = ord(str[j])
 
-		if 97 <= i <= 122:
-			i = i - (97 - 65)
+        if 97 <= i <= 122:
+            i = i - (97 - 65)
 
-		print("{:c}".format(i), end="")
-		j += 1
+        print("{:c}".format(i), end="")
+        j += 1
 
-	print("\n", end="")
+    print("\n", end="")
