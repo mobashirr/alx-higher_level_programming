@@ -5,8 +5,9 @@ int check_cycle(listint_t *list)
 {
 	listint_t *terpo,*one;
 
-	if(!list || (!list->next->next))
-		return(0);
+    if (!list || !list->next)
+        return(0);
+
 
     terpo = list;
     one = list;
