@@ -4,6 +4,8 @@ def islower(c):
 
     result = False
 
+    if (c == ""):
+        return (result)
     i = int.from_bytes(c.encode('utf-8'), 'big')
 
     for j in range(97, 123):
