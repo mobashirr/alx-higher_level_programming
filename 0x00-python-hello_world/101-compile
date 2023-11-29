@@ -1,0 +1,8 @@
+#!/bin/bash
+
+name="${PYFILE}"
+new="${name}c"
+echo "Compiling $name ..."
+
+cat $name > $new
+chmod +x $new
