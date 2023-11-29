@@ -1,40 +1,27 @@
 
 #include "lists.h"
-
+/*
 int check_cycle(listint_t *list)
 {
-	listint_t *home,*step,*temp;
-	int i,j;
+	listint_t *terpo,*one;
 
 	if(!list )
 		return(0);
-	if(list == list->next)
-		return(1);
-	home = list;
-	step = list;
-	j = 0;
-	while(1)
-	{
-		if (step->next)
-		{
-			step = step->next;
-			temp = home;
-			for(i = 0; temp->next; i++)
-			{
-				if(step == temp)
-				{
-					return(1);
-				}
-				temp = temp->next;
-			}
-		}
-		else
-			break;
-		++j;
-	}
-	return(0);
+
+    terpo = list;
+    one = list;
+
+    while (terpo->next->next)
+    {
+        terpo = terpo->next->next;
+        one = one->next;
+
+        if (terpo == one)
+            return(1);
+    }
+    return(0);
 }
-/*
+
 int main(void)
 {
     listint_t *head;
