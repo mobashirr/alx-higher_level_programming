@@ -8,11 +8,10 @@ int check_cycle(listint_t *list)
     if (!list || !list->next)
         return(0);
 
-
     terpo = list;
     one = list;
 
-    while(terpo->next->next && one->next)
+    while(terpo->next && terpo->next->next && one->next)
     {
         terpo = terpo->next->next;
         one = one->next;
