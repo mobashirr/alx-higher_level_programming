@@ -41,11 +41,16 @@ listint_t *insert_node(listint_t **head, int number)
 
 	listint_t *temp, *new, *next;
 
+/*the fuction add handle some cases were the list is not valid 
+	or the number is less than the first elment*/
 	if(!(*head) || (*head)->n > number)
 		return(add(head, number));
 
-	temp = (*head);
+	temp = (*head);		/*we don't need to lost the head*/
 
+	/*my algorithm is to keep going on the linkedlist 
+	till it find element that is less than number 
+	but the next node contain number that is bigger than than number*/
 	while(temp && temp->next)
 	{
 		if(temp->next->n > number)
