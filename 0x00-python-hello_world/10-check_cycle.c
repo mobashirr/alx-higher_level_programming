@@ -5,13 +5,13 @@ int check_cycle(listint_t *list)
 {
 	listint_t *terpo,*one;
 
-	if(!list )
+	if(!list || (!list->next->next))
 		return(0);
 
     terpo = list;
     one = list;
 
-    while (terpo->next->next)
+    while(terpo->next->next && one->next)
     {
         terpo = terpo->next->next;
         one = one->next;
@@ -21,6 +21,7 @@ int check_cycle(listint_t *list)
     }
     return(0);
 }
+
 /*
 int main(void)
 {
