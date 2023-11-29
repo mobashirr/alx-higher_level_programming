@@ -1,6 +1,6 @@
 
 #include "lists.h"
-/*
+
 int check_cycle(listint_t *list)
 {
 	listint_t *terpo,*one;
@@ -21,7 +21,7 @@ int check_cycle(listint_t *list)
     }
     return(0);
 }
-
+/*
 int main(void)
 {
     listint_t *head;
