@@ -2,6 +2,7 @@
 
 def remove_char_at(str, n):
 
-	new = str.replace(str[n],"")
-	print (new)
+	if(str[n] is not None):
+		str = str.replace(str[n],"")
 
+	return(str)
