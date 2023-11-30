@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from head import add, sub, div, mul
+from calculator_1 import add, sub, div, mul
 from sys import exit, argv
 
 if __name__ == "__main__":
