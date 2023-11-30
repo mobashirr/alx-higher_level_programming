@@ -5,9 +5,8 @@ from sys import exit, argv
 
 if __name__ == "__main__":
 
-    len = len(argv)
-    print(len)
-    if len != 4:
+    args_length = len(argv)
+    if args_length != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
     
@@ -26,4 +25,4 @@ if __name__ == "__main__":
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
-    print("{:d} {} {:d} = {:d}".format(a, op, b,result))
+    print("{:d} {} {:d} = {:d}".format(a, op, b, result))
