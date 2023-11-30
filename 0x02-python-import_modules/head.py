@@ -1,3 +1,6 @@
+
+a = 5
+
 def add(a, b):
     """My addition function
 
