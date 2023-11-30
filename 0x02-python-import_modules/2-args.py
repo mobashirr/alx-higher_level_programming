@@ -4,7 +4,8 @@ if __name__ == "__main__":
     from sys import argv
 
     len = len(argv)
-    print("{0} arguments.".format(len - 1))
+    cont = "arguments." if len - 1 == 0 else "arguments:"
+    print("{:d} {}".format(len - 1, cont))
 
     for i in range(1, len):
-        print("{:d}: {:s}".format(i, argv[i]))
+        print("{:d}: {}".format(i, argv[i]))
