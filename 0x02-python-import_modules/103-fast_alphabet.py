@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-(lambda f, x: print(f(f, x)))(lambda self, c: chr(c) + self(self, c + 1) if c < ord('Z') else chr(c), ord('A'))
+(lambda f, x: (lambda s, c: print(s(s, c)))(lambda self, c: chr(c) + self(self, c + (c < ord('Z')) - (c == ord('Z'))), x))(lambda f, x: (lambda s, c: print(s(s, c)))(lambda self, c: chr(c) + self(self, c + (c < ord('Z')) - (c == ord('Z'))), x))
