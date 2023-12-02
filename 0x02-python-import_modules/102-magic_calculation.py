@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-from magic_calculation_102 import add,sub
+from head import add,sub
+import dis
 if __name__ == "__main__":
 	def magic_calculation(a, b):
 
@@ -9,5 +10,5 @@ if __name__ == "__main__":
 				c += i
 		else:
 			return (sub(a,b))
-
+dis.dis(magic_calculation)
 
