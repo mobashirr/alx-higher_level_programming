@@ -7,5 +7,4 @@ def no_c(my_string):
 
     for j in list:
         str += j
-    print(str)
     return(str)
