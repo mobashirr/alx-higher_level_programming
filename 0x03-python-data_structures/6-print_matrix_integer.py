@@ -9,7 +9,7 @@ def print_matrix_integer(matrix=[[]]):
             for k in matrix[j]:
                 sep = " " if k != matrix[j][-1] else ""
                 print("{:d}".format(k), end="{}".format(sep))
-            print("$")
+            print()
 
 matrix = [
     [1, 2, 3],
