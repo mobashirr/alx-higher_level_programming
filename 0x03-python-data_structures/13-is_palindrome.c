@@ -1,42 +1,5 @@
 #include "lists.h"
 
-void rev(int **arr, int len)
-{
-	int i,j,k;
-	k = len / 2;
-
-	for(i = 0; i < k; i++)
-	{
-		j = *arr[i];
-		*arr[i] = *arr[len];
-		*arr[len] = j;
-		++i;
-		--len;
-	}
-}
-
-int count(listint_t *head)
-{
-	listint_t *temp;
-
-	if(!head)
-		return(0);
-
-	temp = head;
-
-	int i = 0;
-	while(temp)
-	{
-		if(temp->next)
-			temp = temp->next;
-		else
-			temp = NULL;
-		++i;
-	}
-	/*printf("len=%d\n",i); */
-	return(i);
-}
-
 int is_palindrome(listint_t **head)
 {
 	int len = 0, *arr,i = 0,j;
@@ -51,7 +14,7 @@ int is_palindrome(listint_t **head)
 	arr = malloc(sizeof(int) * (len / 2) );
 
 	while(i < len/2 && temp)
-	{   /*save the half of elements*/
+	{
 		arr[i] = temp->n;
 		if (temp->next)
 			temp = temp->next;
@@ -78,4 +41,3 @@ int is_palindrome(listint_t **head)
 	}
 	return(pal);
 }
-

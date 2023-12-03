@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "lists.h"
 
 /**
@@ -71,4 +69,41 @@ void free_listint(listint_t *head)
         head = head->next;
         free(current);
     }
+}
+
+void rev(int **arr, int len)
+{
+	int i,j,k;
+	k = len / 2;
+
+	for(i = 0; i < k; i++)
+	{
+		j = *arr[i];
+		*arr[i] = *arr[len];
+		*arr[len] = j;
+		++i;
+		--len;
+	}
+}
+
+int count(listint_t *head)
+{
+	listint_t *temp = NULL;
+
+	if(!head)
+		return(0);
+
+	temp = head;
+
+	int i = 0;
+	while(temp)
+	{
+		if(temp->next)
+			temp = temp->next;
+		else
+			temp = NULL;
+		++i;
+	}
+	/*printf("len=%d\n",i); */
+	return(i);
 }
