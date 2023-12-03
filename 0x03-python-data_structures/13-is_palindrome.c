@@ -1,4 +1,6 @@
 #include "lists.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 void rev(int **arr, int len)
 {
@@ -78,7 +80,6 @@ int is_palindrome(listint_t **head)
     }
     return(pal);
 }
-
 
 /*
 int main(void)
