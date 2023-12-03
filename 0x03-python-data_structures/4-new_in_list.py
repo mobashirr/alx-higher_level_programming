@@ -8,5 +8,5 @@ def new_in_list(my_list, idx, element):
     if idx > i or idx < 0:
         return (new)
 
-    new[idx] = element 
-    return(new)
+    new[idx] = element
+    return (new)
