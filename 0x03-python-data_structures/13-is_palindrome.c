@@ -5,7 +5,7 @@ void rev(int **arr, int len)
     int i,j,k;
     k = len / 2;
 
-    for(i = 0; i != len && i < k; ++i)
+    for(i = 0; i < k; i++)
     {
         j = *arr[i];
         *arr[i] = *arr[len];
@@ -24,7 +24,7 @@ int count(listint_t *head)
 
     temp = head;
 
-    int i = 1;
+    int i = 0;
     while(temp)
     {
         if(temp->next)
@@ -33,6 +33,7 @@ int count(listint_t *head)
             temp = NULL;
         ++i;
     }
+    /*printf("len=%d\n",i); */
     return(i);
 }
 
@@ -42,7 +43,7 @@ int is_palindrome(listint_t **head)
     int pal = 0;    /*palndrome*/
     listint_t *temp;
 
-    if (!head)
+    if (!(*head))
         return(1);
 
     temp = (*head);
@@ -62,16 +63,14 @@ int is_palindrome(listint_t **head)
 
     if (len % 2 != 0 && temp->next)
         temp = temp->next;
+
     for (j = 0; temp; j++)
     {
-        if(len % 2 == 0)
-        {
             if(temp->n != arr[j])
             {
                 pal = 1;
                 break;
             }
-        }
         if(temp->next)
             temp = temp->next;
         else
@@ -80,17 +79,18 @@ int is_palindrome(listint_t **head)
     return(pal);
 }
 
-/*
 
+/*
 int main(void)
 {
     listint_t *head;
 
     head = NULL;
-    add_nodeint_end(&head, 1);
+   add_nodeint_end(&head, 1);
     add_nodeint_end(&head, 17);
     add_nodeint_end(&head, 972);
     add_nodeint_end(&head, 50);
+    add_nodeint_end(&head, 320); 
     add_nodeint_end(&head, 98);
     add_nodeint_end(&head, 98);
     add_nodeint_end(&head, 50);
@@ -108,5 +108,4 @@ int main(void)
 
     return (0);
 }
-
 */
