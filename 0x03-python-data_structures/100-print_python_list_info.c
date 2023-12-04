@@ -3,15 +3,19 @@
 void print_python_list_info(PyObject *p)
 {
     Py_ssize_t pythonlist = PyList_Size(p),
-    aloc = ((PyListObject *)p)->allocated,
-    index = 0;
+    alocated = ((PyListObject *)p)->allocated,
+    i = 0;
     PyObject *object;
 
+    /*size of the object */
     printf("[*] Size of the Python List = %zd\n", pythonlist);
-    printf("[*] Allocated = %zd\n", aloc);
-    for (; index < pythonlist; index++)
+    /* memory allocated */
+    printf("[*] Allocated = %zd\n", alocated);
+
+    /*print the elements of an opject*/
+    for (; i < pythonlist; i++)
     {
-        object = PyList_GET_ITEM(p, index);
-        printf("Element %zd: %s\n", index, object->ob_type->tp_name);
+        object = PyList_GET_ITEM(p, i);
+        printf("Element %zd: %s\n", i, object->ob_type->tp_name);
     }
 }
