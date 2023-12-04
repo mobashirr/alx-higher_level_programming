@@ -58,8 +58,6 @@ int is_palindrome(listint_t **head)
 	if (!(*head))
 		return (1);
 	fast = (*head);
-	if (fast->next && !fast->next->next->next)
-		return(0);
 
 	slow = fast;
 	new = NULL;
