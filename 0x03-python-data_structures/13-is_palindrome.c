@@ -14,7 +14,7 @@ int is_palindrome(listint_t **head)
 
 	fast = (*head);
 	slow = fast;
-	new = NULL;
+	new = NULL;	/*this will be head of the second half of list*/
 
 	while(1)
 	{
