@@ -1,5 +1,5 @@
 #include <Python.h>
-
+#include <stdio.h>
 /**
  * print_python_list_info - print and modifypy list in c
  * @p: PyObject which is python list
