@@ -53,42 +53,45 @@ int count(listint_t *head)
 */
 int is_palindrome(listint_t **head)
 {
-	int len = 0, *arr, i = 0, j;
-	int pal = 0;
-	listint_t *temp = NULL;
+	listint_t *fast, *slow, *new;
 
 	if (!(*head))
 		return (1);
+	fast = (*head);
+	if (fast->next && !fast->next->next->next)
+		return(0);
 
-	temp = (*head);
-	len = count(temp);
-	arr = malloc(sizeof(int) * (len / 2));
+	slow = fast;
+	new = NULL;
 
-	while (i < len / 2 && temp)
+	while(1)
 	{
-		arr[i] = temp->n;
-		if (temp->next)
-			temp = temp->next;
-		else
-			break;
-		i++;
-	}
-	rev(&arr, len / 2);
-
-	if (len % 2 != 0 && temp->next)
-		temp = temp->next;
-
-	for (j = 0; temp; j++)
-	{
-		if (temp->n != arr[j])
+		fast = fast->next->next;
+		slow = slow->next;
+		if (!fast->next->next)
 		{
-			pal = 1;
+			new = slow->next;
 			break;
 		}
-		if (temp->next)
-			temp = temp->next;
-		else
-		temp = NULL;
+		else if (!fast->next)
+		{
+			new = slow->next;
+			break;
+		}
 	}
-	return (pal);
+
+	slow = (*head);
+	while (new)
+	{
+		if (new->n != slow->n)
+			return(1);
+		if (new->next && slow->next)
+		{
+			new = new->next;
+			slow = slow->next;
+		}
+		else
+			break;
+	}
+	return(0);
 }
