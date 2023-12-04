@@ -54,7 +54,7 @@ int count(listint_t *head)
 int is_palindrome(listint_t **head)
 {
 	int len = 0, *arr, i = 0, j;
-	int pal = 0;    /*palndrome*/
+	int pal = 0;
 	listint_t *temp = NULL;
 
 	if (!(*head))
