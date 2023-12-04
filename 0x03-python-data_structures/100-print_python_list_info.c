@@ -7,7 +7,7 @@ void print_python_list_info(PyObject *p)
 {
     Py_ssize_t pythonlist = PyList_Size(p),
     alocated = ((PyListObject *)p)->allocated,
-    index = 0;
+    i = 0;
     PyObject *object;
 
     /*size of the object */
@@ -18,7 +18,7 @@ void print_python_list_info(PyObject *p)
     /*print the elements of an opject*/
     for (; index < pythonlist; index++)
     {
-        object = PyList_GET_ITEM(p, index);
-        printf("Element %zd: %s\n", index, object->ob_type->tp_name);
+        object = PyList_GET_ITEM(p, i);
+        printf("Element %zd: %s\n", i, object->ob_type->tp_name);
     }
 }
