@@ -25,12 +25,12 @@ int is_palindrome(listint_t **head)
 
 		if (!fast->next->next)
 		{	/*case even:*/
-			new = slow->next;
+			new = rev(&slow->next);
 			break;
 		}
 		else if (!fast->next)
 		{	/*case odd*/
-			new = slow->next->next;
+			new = rev(&slow->next->next);
 			break;
 		}
 	}
@@ -49,4 +49,24 @@ int is_palindrome(listint_t **head)
 			break;
 	}
 	return(0);
+}
+
+/**
+ * reverse_list - reverse a linked list
+ * @head: head of list
+ * Return: head of reversed list
+ */
+listint_t *rev(listint_t **head)
+{
+    listint_t *prev = NULL, *current = *head, *next = NULL;
+
+    while (current)
+    {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+
+    return prev;
 }
