@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "/usr/bin/python3.8.10"
+#include <Python.h>
 
 /**
  * print_python_list_python_list_into
