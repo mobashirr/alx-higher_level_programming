@@ -25,7 +25,4 @@ void free_listint(listint_t *head);
 
 int is_palindrome(listint_t **head);
 
-int count(listint_t *head);
-void rev(int **arr, int len);
-
 #endif /* LISTS_H */

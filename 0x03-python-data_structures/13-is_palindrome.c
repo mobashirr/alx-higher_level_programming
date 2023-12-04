@@ -1,52 +1,6 @@
 #include "lists.h"
 
 /**
- * rev - reverse array
- * @arr: array of int
- * @len: length of array
-*/
-void rev(int **arr, int len)
-{
-	int i, j, k;
-
-	k = len / 2;
-
-	for (i = 0; i < k; i++)
-	{
-		j = *arr[i];
-		*arr[i] = *arr[len];
-		*arr[len] = j;
-		++i;
-		--len;
-	}
-}
-/**
- * count - count length of linked list
- * @head: head of list
- * Return: length
-*/
-int count(listint_t *head)
-{
-	listint_t *temp = NULL;
-	int i = 0;
-
-	if (!head)
-		return (0);
-
-	temp = head;
-
-	while (temp)
-	{
-		if (temp->next)
-			temp = temp->next;
-		else
-			temp = NULL;
-		++i;
-	}
-	/*printf("len=%d\n",i); */
-	return (i);
-}
-/**
  * is_palindrome - check for palindrome linked list
  * @head: head of list
  * Return: 1 if palindrome of 0 if not
@@ -67,12 +21,12 @@ int is_palindrome(listint_t **head)
 		fast = fast->next->next;
 		slow = slow->next;
 		if (!fast->next->next)
-		{
+		{	/*case even:*/
 			new = slow->next;
 			break;
 		}
 		else if (!fast->next)
-		{
+		{	/*case odd*/
 			new = slow->next->next;
 			break;
 		}
