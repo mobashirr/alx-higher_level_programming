@@ -3,39 +3,52 @@
 /**
  * is_palindrome - check for palindrome linked list
  * @head: head of list
- * Return: 1 if palindrome, 0 if not
- */
+ * Return: 1 if palindrome of 0 if not
+*/
 int is_palindrome(listint_t **head)
 {
-    listint_t *fast, *slow, *new;
+	listint_t *fast, *slow, *new;
 
-    if (!(*head) || !((*head)->next))
-        return (1);  /* Empty list or single node is a palindrome */
+	if (!(*head) || !((*head)->next))
+		return (1);
 
-    fast = (*head);
-    slow = (*head);
-    new = NULL; /* This will be the head of the second half of the list */
+	fast = (*head);
+	slow = fast;
+	new = NULL;	/*this will be head of the second half of list*/
 
-    while (fast && fast->next)
-    {
-        fast = fast->next->next;
-        slow = slow->next;
-    }
+	while(1)
+	{
+		if (fast->next && fast->next->next)
+			fast = fast->next->next;
+		if (slow->next)
+			slow = slow->next;
 
-    /* Reverse the second half of the list */
-    new = reverse_list(&slow);
+		if (!fast->next->next)
+		{	/*case even:*/
+			new = slow->next;
+			break;
+		}
+		else if (!fast->next)
+		{	/*case odd*/
+			new = slow->next->next;
+			break;
+		}
+	}
 
-    /* Compare the first and reversed second halves of the list */
-    while (new && *head)
-    {
-        if (new->n != (*head)->n)
-            return (0); /* Not a palindrome */
-
-        new = new->next;
-        *head = (*head)->next;
-    }
-
-    return (1); /* Palindrome */
+	slow = (*head);
+	while (new && slow)
+	{
+		if (new->n != slow->n)
+			return(0);
+		if (new->next && slow->next)
+		{
+			new = new->next;
+			slow = slow->next;
+		}
+		else
+			break;
+	}
+	return(1);
 }
 
 /**
@@ -43,7 +56,7 @@ int is_palindrome(listint_t **head)
  * @head: head of list
  * Return: head of reversed list
  */
-listint_t *reverse_list(listint_t **head)
+listint_t *rev(listint_t **head)
 {
     listint_t *prev = NULL, *current = *head, *next = NULL;
 
@@ -57,4 +70,3 @@ listint_t *reverse_list(listint_t **head)
 
     return prev;
 }
-
