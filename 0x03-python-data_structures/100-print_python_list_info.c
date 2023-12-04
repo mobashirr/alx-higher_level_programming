@@ -12,7 +12,7 @@ void print_python_list_info(PyObject *p)
     /* memory allocated */
     printf("[*] Allocated = %zd\n", alocated);
 
-    /*print the elements of an opject*/
+    /*print the elements of an opject */
     for (; i < pythonlist; i++)
     {
         object = PyList_GET_ITEM(p, i);
