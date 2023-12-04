@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "/usr/bin/python3.8.10"
 
-/* /\** */
-/*  * pri */t_python_list_into
+/**
+ * print_python_list_python_list_into
  * @p: object
 */
 void print_python_list_info(PyObject *p)
