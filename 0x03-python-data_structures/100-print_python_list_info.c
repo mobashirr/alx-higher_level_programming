@@ -16,7 +16,7 @@ void print_python_list_info(PyObject *p)
     printf("[*] Allocated = %zd\n", alocated);
 
     /*print the elements of an opject*/
-    for (; index < pythonlist; index++)
+    for (; i < pythonlist; i++)
     {
         object = PyList_GET_ITEM(p, i);
         printf("Element %zd: %s\n", i, object->ob_type->tp_name);
