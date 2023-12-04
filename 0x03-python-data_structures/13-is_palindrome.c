@@ -18,8 +18,11 @@ int is_palindrome(listint_t **head)
 
 	while(1)
 	{
-		fast = fast->next->next;
-		slow = slow->next;
+		if (fast->next && fast->next->next)
+			fast = fast->next->next;
+		if (slow->next)
+			slow = slow->next;
+
 		if (!fast->next->next)
 		{	/*case even:*/
 			new = slow->next;
@@ -33,7 +36,7 @@ int is_palindrome(listint_t **head)
 	}
 
 	slow = (*head);
-	while (new)
+	while (new && slow)
 	{
 		if (new->n != slow->n)
 			return(1);
