@@ -25,12 +25,12 @@ int is_palindrome(listint_t **head)
 
 		if (!fast->next->next)
 		{	/*case even:*/
-			new = rev(&slow->next);
+			new = slow->next;
 			break;
 		}
 		else if (!fast->next)
 		{	/*case odd*/
-			new = rev(&slow->next->next);
+			new = slow->next->next;
 			break;
 		}
 	}
