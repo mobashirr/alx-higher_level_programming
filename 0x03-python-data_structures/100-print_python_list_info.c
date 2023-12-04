@@ -1,4 +1,4 @@
-#include "/usr/include/python3.8.10"
+#include <object.h>
 #include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
