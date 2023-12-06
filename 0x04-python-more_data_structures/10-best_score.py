@@ -12,7 +12,7 @@ def best_score(a_dictionary):
             best = num
             key = i
 
-    return(key)
+    return key
 
 
 '''
