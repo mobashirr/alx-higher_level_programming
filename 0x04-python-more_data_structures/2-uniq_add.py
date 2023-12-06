@@ -7,7 +7,7 @@ def uniq_add(my_list=[]):
         if i not in new[1:]:
             new.append(i)
             new[0] = new[0] + i
-    return(new[0])
+    return (new[0])
 
 
 '''
