@@ -11,14 +11,11 @@ def roman_to_int(roman_string):
 
     for i in range(len(roman_string)):
         if roman_string[i] in dic:
-            if dic[roman_string[i]] >= dic[roman_string[++i]]:
                 res += dic[roman_string[i]]
-            else:
-                res -= dic[roman_string[i]]
+
     return res
 
 
-'''
 roman_number = "X"
 print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 
@@ -33,4 +30,3 @@ print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 
 roman_number = "DCCVII"
 print("{} = {}".format(roman_number, roman_to_int(roman_number)))
-'''
