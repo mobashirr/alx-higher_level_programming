@@ -4,7 +4,7 @@ def roman_to_int(roman_string):
 
     if not roman_string:
         return None
-    str = roman_string
+    num = roman_string
 
     dic = {"I":1, "V":5, "X":10, "L":50, "C":100,
            "D":500, "M":1000}
@@ -12,17 +12,17 @@ def roman_to_int(roman_string):
     bol = lambda x: True if x in sub else False
     res = 0
 
-    if bol(str):
-         return sub[str]
+    if len(num) > 1 and bol(num):
+         return sub[num]
 
     for i in range(len(roman_string)):
         if roman_string[i] in dic:
-                con = str[i]+str[++i]
+                con = num[i]+num[++i]
                 --i
                 if bol(con):
                     res += sub[con]
                 else:
-                    res += dic[str[i]]
+                    res += dic[num[i]]
 
     return res
 
