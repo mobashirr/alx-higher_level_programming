@@ -1,11 +1,14 @@
 #!/usr/bin/python3
-from math import pow
+
 def square_matrix_simple(matrix=[]):
 
-    list = [[],[],[]]
-    for i in range(0,len(matrix)):
-        list[i] = [int(pow(x,2)) for x in matrix[i]]
-    return (list)
+    list = [row[:] for row in matrix]
+
+    for i,row in enumerate(matrix):
+        for j,column in enumerate(row):
+            list[i][j] = column * column
+    return(list)
+
 
 '''
 matrix = [
