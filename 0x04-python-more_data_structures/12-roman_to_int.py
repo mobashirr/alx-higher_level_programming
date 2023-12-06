@@ -15,8 +15,8 @@ def roman_to_int(roman_string):
     if len(num) > 1 and bol(num):
          return sub[num]
 
-    for i in range(len(roman_string)):
-        if roman_string[i] in dic:
+    for i in range(len(num)):
+        if num[i] in dic:
                 con = num[i]+num[++i]
                 --i
                 if bol(con):
