@@ -7,7 +7,7 @@ def square_matrix_simple(matrix=[]):
         list[i] = [int(pow(x,2)) for x in matrix[i]]
     return (list)
 
-
+'''
 matrix = [
     [1, 2, 3],
     [4, 5, 6],
@@ -17,3 +17,4 @@ matrix = [
 new_matrix = square_matrix_simple(matrix)
 print(new_matrix)
 print(matrix)
+'''
