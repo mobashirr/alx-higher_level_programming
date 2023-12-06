@@ -7,6 +7,7 @@ def print_sorted_dictionary(a_dictionary):
 
 '''
 # Test the function with the provided example
-a_dictionary = { 'language': "C", 'Number': 89, 'track': "Low level", 'ids': [1, 2, 3] }
+a_dictionary = { 'language': "C", 'Number': 89, 'track': "Low level",
+                                             'ids': [1, 2, 3] }
 print_sorted_dictionary(a_dictionary)
 '''
