@@ -4,10 +4,10 @@ def square_matrix_simple(matrix=[]):
 
     list = [row[:] for row in matrix]
 
-    for i,row in enumerate(matrix):
-        for j,column in enumerate(row):
+    for i, row in enumerate(matrix):
+        for j, column in enumerate(row):
             list[i][j] = column * column
-    return(list)
+    return (list)
 
 
 '''
