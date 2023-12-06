@@ -17,8 +17,10 @@ def roman_to_int(roman_string):
 
     for i in range(len(roman_string)):
         if roman_string[i] in dic:
-                if bol(str[i]+str[++i]):
-                    res += sub[str[--i]+str[++i]]
+                con = str[i]+str[++i]
+                --i
+                if bol(con):
+                    res += sub[con]
                 else:
                     res += dic[str[i]]
 
