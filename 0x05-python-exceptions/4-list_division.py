@@ -21,7 +21,8 @@ def list_division(my_list_1, my_list_2, list_length):
             print("wrong type")
         finally:
             i += 1
-        if len(my_list_1) != len(my_list_2) and out_range:
+        if (len(my_list_1) < list_length  or len(my_list_2) < list_length) and out_range:
             print("Out of range")
 
     return res
+
