@@ -12,7 +12,7 @@ def safe_print_list(my_list=[], x=0):
             else:
                 print()
                 break
-        except (r):
+        except (IndexError):
             print()
             break
     return i
