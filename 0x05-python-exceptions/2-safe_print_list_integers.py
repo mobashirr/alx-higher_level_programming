@@ -2,8 +2,8 @@
 
 def safe_print_list_integers(my_list=[], x=0):
 
-    i = 0
-    ex = 0  #we use i as index for list but we only return number of printed char
+    i = 0   #i is idx for list
+    ex = 0   #but we only return num of printed elements
 
     while i < x:
         try:
