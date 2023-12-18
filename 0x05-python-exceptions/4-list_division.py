@@ -16,7 +16,7 @@ def list_division(my_list_1, my_list_2, list_length):
             print("Division by zero")
         except (TypeError, ValueError):
             res.append(0)
-            print("Type error")
+            print("wrong type")
         finally:
             i += 1
             if len(my_list_1) > len(my_list_2) and out_range:
