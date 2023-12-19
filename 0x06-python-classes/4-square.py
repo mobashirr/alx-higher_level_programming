@@ -16,29 +16,27 @@ the setter will centralize the logic,
 class Square:
     '''class square'''
 
-    size = 0
     def __init__(self, size=0):
-        try:
-            if isinstance(size, int) and size >= 0:
-                size = size
-            elif size < 0:
-                raise ValueError("size must be >= 0")
-            else:
-                raise TypeError("size must be an integer")
-        except TypeError:
-            raise TypeError("size must be an integer")
+        self.__size = size
 
-    '''return the square of etrribute size'''
-    def area(self):
-        try:
-            if isinstance(self.size, int) and self.size >= 0:
-                return self.size * self.size
-            elif self.size < 0:
-                raise ValueError("size must be >= 0")
-            else:
-                raise TypeError("size must be an integer")
-        except (TypeError, ValueError):
+    @property
+    def size(self):
+        """Getter method to retrieve the size."""
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        """Setter method to set the size."""
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = value
+
+    def area(self):
+        """Public instance method to calculate the area of the square."""
+        return self.__size ** 2
 
 
 '''
