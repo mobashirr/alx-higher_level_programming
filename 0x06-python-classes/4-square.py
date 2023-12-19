@@ -16,10 +16,11 @@ the setter will centralize the logic,
 class Square:
     '''class square'''
 
+    size = 0
     def __init__(self, size=0):
         try:
             if isinstance(size, int) and size >= 0:
-                self.size = size
+                size = size
             elif size < 0:
                 raise ValueError("size must be >= 0")
             else:
