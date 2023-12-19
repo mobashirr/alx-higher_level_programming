@@ -16,7 +16,7 @@ the setter will centralize the logic,
 class Square:
     '''class square'''
 
-    def __init__(self, size=0) -> None:
+    def __init__(self, size=0):
         try:
             if isinstance(size, int) and size >= 0:
                 self.size = size
@@ -27,7 +27,7 @@ class Square:
         except TypeError:
             raise TypeError("size must be an integer")
 
-    '''return the square of th private etrribute size'''
+    '''return the square of etrribute size'''
     def area(self):
         try:
             if isinstance(self.size, int) and self.size >= 0:
