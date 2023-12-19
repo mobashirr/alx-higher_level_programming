@@ -12,6 +12,7 @@ You are not allowed to import any module'''
 
 
 class Square:
+    '''class for square'''
 
     def __init__(self, size=0) -> None:
         try:
