@@ -14,6 +14,8 @@ the setter will centralize the logic,
 
 
 class Square:
+    '''task 4'''
+
     def __init__(self, size=0):
         self.__size = size
 
