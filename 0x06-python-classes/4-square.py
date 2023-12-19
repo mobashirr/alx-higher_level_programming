@@ -10,7 +10,7 @@ and also define how getting the attribute value will be available
 from outside - by copy?
 by assignment? etc. Also, adding type/value validation in
 the setter will centralize the logic,
- since you will do it in only one place.'''
+ since you will do it in only one place. '''
 
 
 class Square:
@@ -43,6 +43,7 @@ class Square:
 '''
 # test case:
 my_square = Square(89)
+
 print("Area: {} for size: {}".format(my_square.area(), my_square.size))
 
 my_square.size = 3
