@@ -14,18 +14,8 @@ the setter will centralize the logic,
 
 
 class Square:
-    '''class square'''
-
     def __init__(self, size=0):
-        try:
-            if isinstance(size, int) and size >= 0:
-                self.__size = size
-            elif size < 0:
-                raise ValueError("size must be >= 0")
-            else:
-                raise TypeError("size must be an integer")
-        except TypeError:
-            raise TypeError("size must be an integer")
+        self.__size = size
 
     @property
     def size(self):
@@ -45,7 +35,6 @@ class Square:
     def area(self):
         """Public instance method to calculate the area of the square."""
         return self.__size ** 2
-
 
 '''
 # test case:
