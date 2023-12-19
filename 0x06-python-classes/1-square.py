@@ -7,4 +7,4 @@ class Square:
     '''this class only contain size'''
 
     def __init__(self, size=0):
-        self.__size = size
+        self.__size = size  # __size so its  private attribute
