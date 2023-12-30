@@ -26,7 +26,7 @@ class Node:
     @property
     def next_node(self):
         """Getter method to retrieve the next_node."""
-        if (self.__next_node != None):
+        if self.__next_node is not None:
             return self.__next_node
         else:
             return None
@@ -50,7 +50,7 @@ class SinglyLinkedList:
         self.__head = None
 
     def sorted_insert(self, value):
-        """Insert a new Node into the correct sorted position in the list (increasing order)."""
+        """Insert a new Node into the correct sorted position in the list."""
         new_node = Node(value)
 
         if not self.__head or value < self.__head.data:
