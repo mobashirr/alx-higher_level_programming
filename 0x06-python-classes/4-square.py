@@ -17,7 +17,7 @@ class Square:
     '''task 4'''
 
     def __init__(self, size=0):
-        self.size = size
+        self.__size = size
 
     @property
     def size(self):
@@ -37,7 +37,6 @@ class Square:
     def area(self):
         """Public instance method to calculate the area of the square."""
         return self.__size * self.__size
-
 
 
 '''
