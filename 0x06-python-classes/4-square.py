@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+'''this is square class that contain size'''
+
+
 class Square:
     '''task 4'''
 
