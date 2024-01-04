@@ -45,4 +45,3 @@ class Rectangle:
             return res
         else:
             return 0
-
