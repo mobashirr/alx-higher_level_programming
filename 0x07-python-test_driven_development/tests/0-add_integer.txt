@@ -1,0 +1,38 @@
+# tests/0-add_integer.txt
+
+'''
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(1, 2)
+3
+
+>>> add_integer(100, 2.3)
+102
+
+>>> add_integer(2)
+100
+
+>>> add_integer(100.3, -2)
+98
+
+>>> add_integer(30.7,50.4)
+80
+
+# the ellipsis (...) give you flixabilty to expect any addtional error msg lines
+
+>>> add_integer(4,"str")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+>>> add_integer("str",3)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer("str","str")
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+'''

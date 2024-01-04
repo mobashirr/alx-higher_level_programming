@@ -1,0 +1,32 @@
+
+
+'''
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name("John", "Smith")    # normal case
+My name is John Smith
+
+>>> say_my_name("John") # case one name given
+My name is John
+
+>>> say_my_name()   # case no arg given
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+>>> say_my_name(3,"John")   # case first name not str
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name("John",3.34)    # case last name not str
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+>>> say_my_name(3,3)   # case both names aren't str
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+'''
