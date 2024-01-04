@@ -61,4 +61,5 @@ class Rectangle:
         return res
 
     def __del__(self):
+        # this method called when object deleted
         print("Bye rectangle...")
