@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 
+'''print_square module'''
+
+
 def print_square(size):
+    '''print_square function'''
 
     if not isinstance(size, int) and not isinstance(size, float):
         return
