@@ -4,7 +4,7 @@
 
 
 class Node:
-    '''task 100'''
+    '''task 100 '''
 
     def __init__(self, data, next_node=None):
         self.__data = data
