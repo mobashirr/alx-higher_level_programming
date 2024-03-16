@@ -1,5 +1,4 @@
-
-# Test for MyList.print_sorted method
->>> lst = MyList([3, 1, 2])
+>>> from .. import my_list.mylist
+>>> lst = my_list.mylist.MyList([3, 1, 2])
 >>> lst.print_sorted()
 [1, 2, 3]
