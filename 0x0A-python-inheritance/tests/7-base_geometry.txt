@@ -1,0 +1,21 @@
+
+>>> import importlib
+>>> module_name = '7-base_geometry'
+>>> module = importlib.import_module(module_name)
+>>> ins = module.BaseGeometry()
+
+
+>>> ins.integer_validator("name", "John")
+    Traceback (most recent call last):
+    ...
+
+>>> ins.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ...
+ValueError: distance must be greater than 0
+
+>>> ins.integer_validator("distance", -4)
+    Traceback (most recent call last):
+    ...
+ValueError: distance must be greater than 0
+
