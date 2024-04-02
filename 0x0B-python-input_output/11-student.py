@@ -20,10 +20,7 @@ class Student:
             return {attr: getattr(self, attr)
                     for attr in attrs if hasattr(self, attr)}
 
-    def reload_from_json(self, json):
-        keys = json.keys()
-        atrr = self.__dir__
-
-        for key in keys:
-            if key in atrr:
-                self.atrr = json[key]
+    def reload_from_json(self, json_data):
+        for key, value in json_data.items():
+            if hasattr(self, key):
+                setattr(self, key, value)
