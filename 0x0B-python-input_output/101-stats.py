@@ -1,41 +1,38 @@
 #!/usr/bin/python3
 
+'''script for catch certain codes pattern'''
+
+
 import sys
 
-metrics = {
-    'total_file_size': 0,
-    200: 0,
-    301: 0,
-    400: 0,
-    401: 0,
-    403: 0,
-    404: 0,
-    405: 0,
-    500: 0
-}
+def print_stats(total_size, status_codes):
+    print("File size: {}".format(total_size))
+    for status_code in sorted(status_codes):
+        print("{}: {}".format(status_code, status_codes[status_code]))
 
-line_count = 0
+def parse_line(line, total_size, status_codes):
+    try:
+        parts = line.split()
+        size = int(parts[-1])
+        status_code = parts[-2]
+        total_size += size
+        status_codes[status_code] = status_codes.get(status_code, 0) + 1
+    except (IndexError, ValueError):
+        pass
+    return total_size, status_codes
 
-try:
-    for line in sys.stdin:
-        line_count += 1
-        try:
-            parts = line.split()
-            status_code = int(parts[-2])
-            file_size = int(parts[-1])
-            metrics['total_file_size'] += file_size
-            metrics[status_code] += 1
-        except Exception as e:
-            pass
+def main():
+    total_size = 0
+    status_codes = {}
+    try:
+        line_count = 0
+        for line in sys.stdin:
+            total_size, status_codes = parse_line(line, total_size, status_codes)
+            line_count += 1
+            if line_count % 10 == 0:
+                print_stats(total_size, status_codes)
+    except KeyboardInterrupt:
+        print_stats(total_size, status_codes)
 
-        if line_count % 10 == 0:
-            print("File size: {}".format(metrics['total_file_size']))
-            for code in sorted(metrics.keys()):
-                if code in [200, 301, 400, 401, 403, 404, 405, 500]:
-                    print("{}: {}".format(code, metrics[code]))
-
-except KeyboardInterrupt:
-    print("File size: {}".format(metrics['total_file_size']))
-    for code in sorted(metrics.keys()):
-        if code in [200, 301, 400, 401, 403, 404, 405, 500]:
-            print("{}: {}".format(code, metrics[code]))
+if __name__ == "__main__":
+    main()
