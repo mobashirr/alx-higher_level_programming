@@ -1,8 +1,5 @@
 #!/usr/bin/python3
 
-'''script for catch specfied code pattern from stdin'''
-
-
 import sys
 
 metrics = {
@@ -17,17 +14,18 @@ metrics = {
     500: 0
 }
 
+line_count = 0
+
 try:
-    line_count = 0
     for line in sys.stdin:
         line_count += 1
         try:
-            ip, _, _, status_code, file_size = line.split()[0], line.split()[8], line.split()[10], line.split()[12], line.split()[13]
-            status_code = int(status_code)
-            file_size = int(file_size)
+            parts = line.split()
+            status_code = int(parts[-2])
+            file_size = int(parts[-1])
             metrics['total_file_size'] += file_size
             metrics[status_code] += 1
-        except:
+        except Exception as e:
             pass
 
         if line_count % 10 == 0:
