@@ -21,6 +21,9 @@ class Student:
                     for attr in attrs if hasattr(self, attr)}
 
     def reload_from_json(self, json):
-        self.first_name = json["first_name"]
-        self.last_name = json["last_name"]
-        self.age = json["age"]
+        keys = json.keys()
+        atrr = self.__dir__
+
+        for key in keys:
+            if key in atrr:
+                self.atrr = json[key]
