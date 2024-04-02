@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
+'''Module for add_item method.'''
+
+
 import sys
 from os import path
 import importlib
-
 
 # Import the modules
 module_name = "5-save_to_json_file"
@@ -21,6 +23,5 @@ else:
 
 # Add arguments to the list
 items.extend(sys.argv[1:])
-
 # Save the list to the file
 module.save_to_json_file(items, filename)
