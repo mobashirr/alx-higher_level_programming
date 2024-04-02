@@ -5,12 +5,16 @@
 
 import sys
 
+
 def print_stats(total_size, status_codes):
+    '''print_stats'''
     print("File size: {}".format(total_size))
     for status_code in sorted(status_codes):
         print("{}: {}".format(status_code, status_codes[status_code]))
 
+
 def parse_line(line, total_size, status_codes):
+    '''print line'''
     try:
         parts = line.split()
         size = int(parts[-1])
@@ -21,18 +25,22 @@ def parse_line(line, total_size, status_codes):
         pass
     return total_size, status_codes
 
+
 def main():
+    '''main func'''
     total_size = 0
     status_codes = {}
     try:
         line_count = 0
         for line in sys.stdin:
-            total_size, status_codes = parse_line(line, total_size, status_codes)
+            total_size, status_codes = parse_line(line,
+                                                  total_size, status_codes)
             line_count += 1
             if line_count % 10 == 0:
                 print_stats(total_size, status_codes)
     except KeyboardInterrupt:
         print_stats(total_size, status_codes)
+
 
 if __name__ == "__main__":
     main()
