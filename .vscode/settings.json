@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./0x0B-python-input_output/5-",
+        "./0x0B-python-input_output/6-"
+    ]
+}

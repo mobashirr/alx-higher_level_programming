@@ -2,15 +2,20 @@
 
 import sys
 from os import path
-from save_to_json_file import save_to_json_file
-from load_from_json_file import load_from_json_file
+import importlib
 
+
+# Import the modules
+module_name = "5-save_to_json_file"
+module2_name = "6-load_from_json_file"
+module = importlib.import_module(module_name)
+module2 = importlib.import_module(module2_name)
 filename = "add_item.json"
 
 # Check if the file exists
 if path.exists(filename):
     # Load existing items from file
-    items = load_from_json_file(filename)
+    items = module2.load_from_json_file(filename)
 else:
     items = []
 
@@ -18,4 +23,4 @@ else:
 items.extend(sys.argv[1:])
 
 # Save the list to the file
-save_to_json_file(items, filename)
+module.save_to_json_file(items, filename)
