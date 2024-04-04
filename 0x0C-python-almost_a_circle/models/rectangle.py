@@ -78,11 +78,6 @@ class Rectangle(Base):
         res = Self.width * Self.height
         return res
 
-
-r1 = Rectangle(4, 6)
-r1.display()
-
-print("---")
-
-r1 = Rectangle(2, 2)
-r1.display()
+    def __str__(self):
+        rep = f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return rep
