@@ -18,10 +18,12 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        '''width getter'''
         return self.__width
 
     @width.setter
     def width(self, value):
+        '''width setter'''
         if type(value) != int:
             raise TypeError('width must be an integer')
         elif value <= 0:
@@ -31,10 +33,12 @@ class Rectangle(Base):
 
     @property
     def height(Self):
+        '''height getter'''
         return Self.__height
 
     @height.setter
     def height(self, value):
+        '''height setter'''
         if type(value) != int:
             raise TypeError('height must be an integer')
         elif value <= 0:
@@ -44,10 +48,12 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        '''x getter'''
         return self.__x
 
     @x.setter
     def x(self, value):
+        '''x setter'''
         if type(value) != int:
             raise TypeError('x must be an integer')
         elif value < 0:
@@ -57,10 +63,12 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        '''y getter'''
         return self.__y
 
     @y.setter
     def y(self, value):
+        '''y setter'''
         if type(value) != int:
             raise TypeError('y must be an integer')
         elif value < 0:
@@ -69,15 +77,21 @@ class Rectangle(Base):
             self.__y = value
 
     def display(self):
+        '''display rectangle'''
+        for _ in range(self.y):
+            print()
+
         for i in range(self.height):
             for _ in range(self.width):
                 print('#', end='')
             print()
 
     def area(Self):
+        '''area of rectangle'''
         res = Self.width * Self.height
         return res
 
     def __str__(self):
+        '''string representation'''
         rep = f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
         return rep
