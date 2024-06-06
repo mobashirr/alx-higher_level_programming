@@ -105,3 +105,16 @@ class Rectangle(Base):
         '''string representation'''
         rep = f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
         return rep
+
+    def update(self, *args, **kwargs):
+        '''update rectangle'''
+
+        attributes = ['id', 'width', 'height', 'x', 'y']
+        if args:
+            for i, value in enumerate(args):
+                if i < len(attributes):
+                    setattr(self, attributes[i], value)
+        elif kwargs:
+            for key, value in kwargs.items():
+                if key in attributes:
+                    setattr(self, key, value)
