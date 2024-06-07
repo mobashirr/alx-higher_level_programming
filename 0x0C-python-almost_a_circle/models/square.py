@@ -1,13 +1,17 @@
 #!/usr/bin/python3
 
+'''square class mod'''
+
+
 from rectangle import Rectangle
 
+
 class Square(Rectangle):
-    
+
     def __init__(self, size, x=0, y=0, id=None):
         '''assign the values with setter methods'''
         super().__init__(size, size, x, y, id)
- 
+
     @property
     def size(self):
         '''size getter'''
@@ -15,19 +19,18 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, value):
-        '''size setter'''        
+        '''size setter'''
         self.width = value
 
     def __str__(self):
         '''return the string representation of the object'''
-        return '[Square] ({}) {}/{} - {}'.format(self.id, self.x, self.y, self.width)
-
+        return f'[Square] ({self.id}) {self.x}/{self.y} - {self.width}'
 
     def update(self, *args, **kwargs):
         attributes = ['id', 'size', 'x', 'y']
 
         if args:
-            for i,value in enumerate(args):
+            for i, value in enumerate(args):
                 if i < len(args):
                     setattr(self, attributes[i], value)
         elif kwargs:
@@ -41,5 +44,5 @@ class Square(Rectangle):
             'id': self.id,
             'size': self.width,
             'x': self.x,
-            'y': self.y }
+            'y': self.y}
         return Square_dict

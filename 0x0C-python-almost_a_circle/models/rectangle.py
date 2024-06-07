@@ -5,6 +5,7 @@
 
 from base import Base
 
+
 class Rectangle(Base):
     '''rectangle class'''
 
@@ -125,5 +126,5 @@ class Rectangle(Base):
             'width': self.width,
             'height': self.height,
             'x': self.x,
-            'y': self.y }
+            'y': self.y}
         return Rectangle_dict

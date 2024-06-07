@@ -25,7 +25,7 @@ class Base():
             return '[]'
         else:
             return json.dumps(list_dictionaries)
-    
+
     @classmethod
     def save_to_file(cls, list_objs):
         '''write the JSON string representation of list_objs to a file'''
@@ -35,7 +35,7 @@ class Base():
 
         with open(filename, 'w') as file:
             file.write(list_dicts_as_json)
-    
+
     @staticmethod
     def from_json_string(json_string):
         '''return the list of the JSON string representation json_string'''
@@ -43,13 +43,13 @@ class Base():
             return []
         else:
             return json.loads(json_string)
-    
+
     @classmethod
     def create(cls, **dictionary):
         dummy_instance = cls(1, 1) if cls.__name__ == 'Rectangle' else cls(1)
         dummy_instance.update(**dictionary)
         return dummy_instance
-    
+
     @classmethod
     def load_from_file(cls):
         '''return a list of instances from json file'''
