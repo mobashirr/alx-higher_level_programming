@@ -49,3 +49,18 @@ class Base():
         dummy_instance = cls(1, 1) if cls.__name__ == 'Rectangle' else cls(1)
         dummy_instance.update(**dictionary)
         return dummy_instance
+    
+    @classmethod
+    def load_from_file(cls):
+        '''return a list of instances from json file'''
+        file_name = cls.__name__ + '.json'
+
+        try:
+            with open(file_name, 'r') as file:
+                # 1. convert json string to list of dictionaries
+                dicts = cls.from_json_string(file.read())
+                # 2. create instances from list of dictionaries
+                instances = [cls.create(**dict) for dict in dicts]
+                return instances
+        except FileNotFoundError:
+            return []
