@@ -1,0 +1,7 @@
+-- LIST BY SCORE AND NAME
+-- ORDER BY SCORE FROM BIG TO SMALL
+-- JUST WHEN SCORE >= 10
+SELECT score, name
+FROM second_table
+ORDER BY score DESC
+WHERE score > 10;
