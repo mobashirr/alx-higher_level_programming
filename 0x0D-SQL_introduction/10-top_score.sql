@@ -1,0 +1,5 @@
+-- LIST BY SCORE AND NAME
+-- ORDER BY SCORE FROM BIG TO SMALL
+SELECT score, name
+FROM second_table
+ORDER BY score DESC;
