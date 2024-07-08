@@ -4,7 +4,9 @@
 // parameters of the program
 const { argv } = require('node:process');
 
-switch (argv.length) {
+let length = argv.reduce((acc, _) => acc + 1, 0);
+
+switch (length) {
   case 2:
     console.log('No argument');
     break;
