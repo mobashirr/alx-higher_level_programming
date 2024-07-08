@@ -2,16 +2,21 @@
 
 const { argv } = require('node:process');
 
-if (argv.length < 4) {
+if (argv.length <= 3) { // No argument or only one argument
   console.log(0);
 } else {
-  var big = Number(argv[2]);
-  for (let i = 2; i < argv.length; i++) {
-    if (isNaN(argv[i])) {
-      continue;
-    } else if (big < Number(argv[i])) {
-      big = Number(argv[i]);
+  const numbers = argv.slice(2).map(Number); // Convert arguments to numbers
+  let max = -Infinity;
+  let secondMax = -Infinity;
+
+  for (let num of numbers) {
+    if (num > max) {
+      secondMax = max;
+      max = num;
+    } else if (num > secondMax && num < max) {
+      secondMax = num;
     }
   }
-  console.log(big);
+
+  console.log(secondMax);
 }
