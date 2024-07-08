@@ -6,4 +6,4 @@ function add (n1, n2) {
 
 const { argv } = require('node:process');
 
-add(argv[2], argv[3]);
+console.log(add(Number(argv[2]), Number(argv[3])));
