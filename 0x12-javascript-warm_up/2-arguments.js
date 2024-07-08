@@ -1,5 +1,8 @@
 #!/usr/bin/node
+// this program takes array of parameters from process.arg
+// and display messege depending on length of the array
 
+// parameters of the program
 const { argv } = require('node:process');
 
 switch (argv.length) {
