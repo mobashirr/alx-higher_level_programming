@@ -26,6 +26,42 @@ def main():
 
     print("Activating virtual environment and upgrading pip...")
     run_command("source venv/bin/activate && pip install --upgrade pip", use_bash=True)
+    # Update the package list
+    print("Updating package list...")
+    run_command("sudo apt-get update")
+
+    # Install necessary dependencies
+    print("Installing dependencies...")
+    run_command("sudo apt-get install -y wget lsb-release gnupg")
+
+    # Add the MySQL APT repository
+    print("Adding MySQL APT repository...")
+    run_command("wget https://dev.mysql.com/get/mysql-apt-config_0.8.23-1_all.deb")
+    run_command("sudo dpkg -i mysql-apt-config_0.8.23-1_all.deb")
+
+    # Update the package list again
+    print("Updating package list again...")
+    run_command("sudo apt-get update")
+
+    # Install MySQL server
+    print("Installing MySQL server...")
+    run_command("sudo apt-get install -y mysql-server")
+
+    # Start MySQL service
+    print("Starting MySQL service...")
+    run_command("sudo systemctl start mysql")
+
+    # Enable MySQL to start on boot
+    print("Enabling MySQL to start on boot...")
+    run_command("sudo systemctl enable mysql")
+
+    # Secure MySQL installation
+    print("Securing MySQL installation...")
+    run_command("sudo mysql_secure_installation", use_bash=True)
+
+    # Verify MySQL installation
+    print("Verifying MySQL installation...")
+    run_command("mysql --version")
 
     # Install MySQLdb module version 2.0.x
     print("Installing MySQLdb module version 2.0.x...")
