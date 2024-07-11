@@ -26,6 +26,16 @@ def main():
 
     print("Activating virtual environment and upgrading pip...")
     run_command("source venv/bin/activate && pip install --upgrade pip", use_bash=True)
+
+    # Check if MySQL is already installed
+    print("Checking if MySQL is already installed...")
+    try:
+        run_command("mysql --version")
+        print("MySQL is already installed. Exiting...")
+        sys.exit(0)
+    except subprocess.CalledProcessError:
+        print("MySQL is not installed. Proceeding with installation...")
+
     # Update the package list
     print("Updating package list...")
     run_command("sudo apt-get update")
@@ -34,10 +44,14 @@ def main():
     print("Installing dependencies...")
     run_command("sudo apt-get install -y wget lsb-release gnupg")
 
-    # Add the MySQL APT repository
-    print("Adding MySQL APT repository...")
-    run_command("wget https://dev.mysql.com/get/mysql-apt-config_0.8.23-1_all.deb")
-    run_command("sudo dpkg -i mysql-apt-config_0.8.23-1_all.deb")
+    # Add the MySQL APT repository if not already added
+    config_package = "mysql-apt-config_0.8.23-1_all.deb"
+    if not os.path.exists(config_package):
+        print("Adding MySQL APT repository...")
+        run_command(f"wget https://dev.mysql.com/get/{config_package}")
+        run_command(f"sudo dpkg -i {config_package}")
+    else:
+        print("MySQL APT repository configuration package already exists. Skipping download...")
 
     # Update the package list again
     print("Updating package list again...")
