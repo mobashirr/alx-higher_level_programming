@@ -18,14 +18,14 @@ def main():
         db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
         cursor = db.cursor()
 
-        # Use parameterized query to prevent SQL injection
+        # Create the query using parameterized input
         query = "SELECT id, name FROM states WHERE name = %s ORDER BY id ASC"
-        cursor.execute(query, state_name)
+        cursor.execute(query, (state_name,))
 
         # Fetch all the results
         rows = cursor.fetchall()
 
-        # Print each rowa
+        # Print each row
         for row in rows:
             print(row)
 
@@ -36,7 +36,6 @@ def main():
             cursor.close()
         if db:
             db.close()
-
 
 if len(sys.argv) > 4:
     main()
