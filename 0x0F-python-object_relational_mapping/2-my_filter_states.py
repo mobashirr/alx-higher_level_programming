@@ -25,7 +25,7 @@ def main():
         # Fetch all the results
         rows = cursor.fetchall()
 
-        # Print each row
+        # Print each rowa
         for row in rows:
             print(row)
 
