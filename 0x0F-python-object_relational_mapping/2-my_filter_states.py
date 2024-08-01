@@ -2,43 +2,43 @@
 
 '''this module intract with mysql db using mysqldb module'''
 
-from sys import argv
+import sys
 import MySQLdb
 
 
 def main():
-    ''''main logic'''
-    username = argv[1]
-    password = argv[2]
-    database = argv[3]
-    name = argv[4]
-    # conect to the database
-    db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=username,
-        passwd=password,
-        db=database
-    )
-    cursor = db.cursor()
+    # Get command line arguments
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    state_name = sys.argv[4]
 
-    # Execute the query which pre-formated 
-    query = "SELECT id, name FROM states WHERE name = {} ORDER BY id ASC".format(name)
-    cursor.execute(query)
+    try:
+        # Connect to the database
+        db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+        cursor = db.cursor()
 
-    # Fetch all the results
-    rows = cursor.fetchall()
+        # Create the query using format
+        query = "SELECT id, name FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
+        cursor.execute(query)
 
-    # Print each row
-    for row in rows:
-        print(row)
+        # Fetch all the results
+        rows = cursor.fetchall()
 
-    # Close the cursor and the connection
-    cursor.close()
-    db.close()
+        # Print each row
+        for row in rows:
+            print(row)
+
+    except MySQLdb.Error as e:
+        print(f"Error {e.args[0]}: {e.args[1]}")
+    finally:
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 
-if len(argv) > 3:
+if len(sys.argv) > 3:
     main()
 else:
-    print(f"USAGE {argv[0]} mysql_username mysql_password  database_name")
+    print(f"USAGE {sys.argv[0]} mysql_username mysql_password  database_name")
