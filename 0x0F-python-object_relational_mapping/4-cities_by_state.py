@@ -14,8 +14,14 @@ def main():
     db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
     cursor = db.cursor()
 
-    # Execute the query
-    cursor.execute("SELECT id, name FROM cities ORDER BY id ASC")
+    # Create and execute the query
+    query = """
+    SELECT cities.id, cities.name, states.name 
+    FROM cities 
+    JOIN states ON cities.state_id = states.id 
+    ORDER BY cities.id ASC
+    """
+    cursor.execute(query)
 
     # Fetch all the results
     rows = cursor.fetchall()
