@@ -38,7 +38,7 @@ def main():
             db.close()
 
 
-if len(sys.argv) > 3:
+if len(sys.argv) > 4:
     main()
 else:
     print(f"USAGE {sys.argv[0]} mysql_username mysql_password  database_name")
