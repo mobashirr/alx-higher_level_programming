@@ -8,6 +8,7 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 import sys
 
+
 def main():
     if len(sys.argv) != 4:
         print("Usage: ./12-model_state_update_id_2.py <mysql_username> <mysql_password> <database_name>")
