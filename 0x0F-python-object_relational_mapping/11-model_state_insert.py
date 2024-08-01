@@ -10,7 +10,6 @@ import sys
 
 def main():
     if len(sys.argv) != 4:
-        print("Usage: ./11-model_state_insert.py <mysql_username> <mysql_password> <database_name>")
         return
 
     mysql_username = sys.argv[1]

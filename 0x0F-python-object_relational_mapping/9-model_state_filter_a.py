@@ -9,7 +9,6 @@ import sys
 
 def main():
     if len(sys.argv) != 4:
-        print("Usage: ./9-model_state_filter_a.py <mysql_username> <mysql_password> <database_name>")
         return
 
     mysql_username = sys.argv[1]

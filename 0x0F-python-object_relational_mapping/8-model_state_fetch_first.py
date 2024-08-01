@@ -9,7 +9,6 @@ from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: ./<script_name> <mysql_username> <mysql_password> <database_name>")
         sys.exit(1)
     
     user = sys.argv[1]
