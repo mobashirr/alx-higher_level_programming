@@ -22,9 +22,9 @@ def main():
     )
     cursor = db.cursor()
 
-    # Execute the query with parameterized input to prevent SQL injection
-    query = "SELECT id, name FROM states WHERE name = %s ORDER BY id ASC"
-    cursor.execute(query, (name,))
+    # Execute the query which pre-formated 
+    query = "SELECT id, name FROM states WHERE name = {} ORDER BY id ASC".format(name)
+    cursor.execute(query)
 
     # Fetch all the results
     rows = cursor.fetchall()
